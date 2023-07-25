@@ -1,0 +1,875 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+/***** STYLED FOR MOBILE FIRST *****/
+body {
+    background-color: hsl(237, 48.6%, 14.5%);
+    background-image: radial-gradient(hsl(214, 47.5%, 23.1%), hsl(237, 48.6%, 14.5%));
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: hsl(100, 100%, 100%);
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+}
+
+/***** HOLDS GAME, DOES NOT HOLD RULES BUTTON *****/
+.game-container {
+    width: 375px;
+    min-height: 653px;
+    margin: auto;
+    position: relative;
+}
+
+/***** HEADER WITH SCORE *****/
+.header {
+    width: 311px;
+    height: 96px;
+    border: 3px solid hsla(100, 100%, 100%, 0.29);
+    border-radius: 15px;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+}
+
+.logo {
+    width: 83px;
+    height: 48px;
+    position: absolute;
+    top: 21px;
+    left: 20px;
+}
+
+#score-box {
+    width: 80px;
+    height: 72px;
+    border-radius: 4px;
+    background: linear-gradient(hsl(0, 0%, 95.3%), hsl(0, 0%, 100%));
+    box-shadow: 0 3 3 0 hsla(0, 0%, 0%, 0.2);
+    position: absolute;
+    top: 9px;
+    right: 9px;
+}
+
+#score-label {
+    width: 35px;
+    height: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5625px;
+    color: hsl(229, 64.4%, 46.3%);
+    position: absolute;
+    top: 10px;
+    left: 23px;
+}
+
+#score-value {
+    width: 45px;
+    height: 40px;
+    color: hsl(246, 10.6%, 36.9%);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 22px;
+    left: 18px;
+}
+
+/***** HOLDS ROCK PAPER SCISSORS *****/
+#triangle {
+    width: 312px;
+    height: 282px;
+    position: absolute;
+    top: 233px;
+    left: 32px;
+    background-image: url('./images/bg-triangle.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 182px;
+}
+
+/**** APPLIED TO ALL CIRCLE BUTTONS *****/
+.circle {
+    border-radius: 100%;
+    background: linear-gradient(hsl(0, 0%, 95.3%), hsl(0, 0%, 85.5%));
+    position: absolute;
+}
+
+/**** CIRCLE SIZES (SMALL & LARGE SAME ON MOBILE VERSION) *****/
+.small, .large {
+    width: 130px;
+    height: 127px;
+    border: 15px solid;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.small.rock, .large.rock {
+    border-color: hsl(229, 89%, 65%);
+    box-shadow: 0 6px 0 0 hsl(229, 67%, 46%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.small.paper, .large.paper {
+    border-color: hsl(349, 71%, 55%);
+    box-shadow: 0 6px 0 0 hsl(346, 83%, 34%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.small.scissors, .large.scissors {
+    border-color: hsl(41, 85%, 51%);
+    box-shadow: 0 6px 0 0 hsl(28, 76.1%, 44.3%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+/***** HOVER EEFECT FOR SMALL CIRCLES *****/
+.small.rock:hover, .small.paper:hover, .small.scissors:hover {
+    cursor: pointer;
+}
+
+.small.rock:hover {
+    box-shadow: 0 6px 0 0 hsl(229, 67%, 46%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2),
+        0 3px 0 20px hsla(0, 0%, 100%, 0.05);
+}
+
+.small.paper:hover {
+    box-shadow: 0 6px 0 0 hsl(346, 83%, 34%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2), 
+        0 3px 0 20px hsla(0, 0%, 100%, 0.05);
+}
+
+.small.scissors:hover {
+    box-shadow: 0 6px 0 0 hsl(28, 76.1%, 44.3%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2), 
+        0 3px 0 20px hsla(0, 0%, 100%, 0.05);
+}
+
+/***** DIV THAT HOLD SYMBOL *****/
+.symbol {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    pointer-events: none;
+}
+
+.rock .symbol {
+    background-image: url('./images/icon-rock.svg');
+}
+
+.paper .symbol {
+    background-image: url('./images/icon-paper.svg');
+}
+
+.scissors .symbol {
+    background-image: url('./images/icon-scissors.svg');
+}
+
+/***** SYMBOL SIZING FOR MOBILE (SMALL AND LARGE CIRCLES AR SAME) *****/
+.small.rock .symbol, .large.rock .symbol {
+    width: 42px;
+    height: 42px;
+    top: 30px;
+    left: 27px;
+}
+
+.small.paper .symbol, .large.paper .symbol {
+    width: 44px;
+    height: 52px;
+    top: 22px;
+    left: 26px;
+}
+
+.small.scissors .symbol, .large.scissors .symbol {
+    width: 50px;
+    height: 57px;
+    top: 20px;
+    left: 26px;
+}
+
+/***** CIRCLES POSITIONS WITHIN TRIANGE DIV *****/
+#rock {
+    top: 148px;
+    left: 91px; 
+    animation: sliderock 0.3s both linear;
+}
+
+@keyframes sliderock {
+    from { top: 118px; left: 61px; opacity: 0% }
+    to { top: 148px; left: 91px; opacity: 100% }
+}
+
+#paper {
+    top: 0;
+    left: 0;
+    animation: slidepaper 0.3s both linear;
+}
+
+@keyframes slidepaper {
+    from { left: 30px; opacity: 0% }
+    to { left: 0px; opacity: 100% }
+}
+
+#scissors {
+    top: 0;
+    right: 0;
+    animation: slidescissors 0.3s both linear;
+}
+
+@keyframes slidescissors {
+    from { top: 30px; right: 30px; opacity: 0% }
+    to { top: 0px; right: 0px; opacity: 100% }
+}
+
+/***** SIZE AND POSITION OF DIVS HOLDING COMPETING SELECTIONS *****/
+#user-pick-container, #house-pick-container {
+    display: none;
+    height: 182px;
+    position: absolute;
+    top: 227px;
+    animation: appear 0.3s linear both;
+}
+
+#user-pick-container {
+    width: 130px;
+    left: 29px;
+}
+
+#house-pick-container {
+    width: 145px;
+    left: 209px;
+}
+
+/* CIRCLE POSITION WITHIN #house-pick-container */
+#house-selection {
+    left: 8px;
+    display: none;
+}
+
+/***** SIZE AND POSITION OF "PICKED" TEXT *****/
+.you-picked-text, .house-picked-text {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.88px;
+    line-height: 32px;
+    text-shadow: 0 3 3 0 hsla(0, 0%, 0%, 0.2);
+    position: absolute;
+    top: 150px;
+}
+
+.you-picked-text {
+    width: 90px;
+    height: 32px;
+    left: 20px;
+}
+
+.house-picked-text {
+    width: 145px;
+    height: 32px;
+}
+
+/**** WIN, LOSE, DRAW TEXT  and PLAY AGAIN BUTTON *****/
+#win-text, #lose-text, #draw-text {
+    height: 67px;
+    font-size: 56px;
+    position: absolute;
+    top: 471px;
+    display: none;
+}
+
+#win-text {
+    width: 195px;
+    left: 90px;
+}
+
+#lose-text {
+    width: 220px;
+    left: 78px;
+}
+
+#draw-text {
+    width: 135px;
+    left: 125px;
+}
+
+#play-again-button {
+    width: 220px;
+    height: 48px;
+    border-radius: 8px;
+    background: linear-gradient(hsl(0, 0%, 95.3%), hsl(0, 0%, 100%));
+    color: hsl(229, 24.8%, 30.8%);
+    position: absolute;
+    top: 554px;
+    left: 78px;
+    display: none;
+}
+
+#win-text, #lose-text, #draw-text, #play-again-button {
+    animation: appear 0.1s ease-in-out both;
+}
+
+@keyframes appear {
+    from {opacity: 0%}
+    to {opacity: 100%}
+}
+
+.play-again-text {
+    width: 101px;
+    height: 19px;
+    letter-spacing: 2.5px;
+    position: absolute;
+    top: 15px;
+    left: 60px;
+}
+
+#play-again-button:hover {
+    color: hsl(349, 70.6%, 52%);
+    cursor: pointer;
+} 
+
+/***** WINNER SHADOW STYLE *****/
+.winner.rock {
+    box-shadow: 0 6px 0 0 hsl(229, 67%, 46%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2),
+        0 0 0 75px hsla(100, 100%, 100%, 0.01), 
+        0 0 0 45px hsla(100, 100%, 100%, 0.02), 
+        0 0 0 20px hsla(100, 100%, 100%, 0.03);
+}
+
+.winner.paper {
+    box-shadow: 0 6px 0 0 hsl(346, 83%, 34%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2),
+        0 0 0 75px hsla(100, 100%, 100%, 0.01), 
+        0 0 0 45px hsla(100, 100%, 100%, 0.02), 
+        0 0 0 20px hsla(100, 100%, 100%, 0.03);
+}
+
+.winner.scissors {
+    box-shadow: 0 6px 0 0 hsl(28, 76.1%, 44.3%),
+        0 5px 0 0 hsl(228, 23.2%, 78%) inset, 
+        0 9px 3px 0 hsla(0, 0%, 0%, 0.2),
+        0 0 0 75px hsla(100, 100%, 100%, 0.01), 
+        0 0 0 45px hsla(100, 100%, 100%, 0.02), 
+        0 0 0 20px hsla(100, 100%, 100%, 0.03);
+}
+
+/***** USER SELECTION PLACEHOLDER *****/
+#placeholder {
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    background-color: hsla(0, 0%, 0%, 0.1);
+    position: absolute;
+    top: 11px;
+    left: 17px;
+    display: block;
+    animation: pulse 0.3s both infinite alternate;
+}
+
+@keyframes pulse {
+    from { top: 11px; left: 17px; width: 110px; height: 110px }
+    to { top: 21px; left: 27px; width: 90px; height: 90px }
+}
+
+/***** RESET AND RULES BUTTONS *****/
+.button {
+    width: 128px;
+    height: 40px;
+    margin: auto;
+    border: 1px solid hsl(0, 0%, 100%);
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.button-text {
+    width: 55px;
+    height: 19px;
+    letter-spacing: 2.5px;
+    position: absolute;
+    top: 10px;
+    left: 36px;
+    pointer-events: none;
+}
+
+.button:hover {
+    background: linear-gradient(hsl(0, 0%, 95.3%), hsl(0, 0%, 100%));
+    color: hsl(229, 24.8%, 30.8%);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: hsl(0, 0%, 100%);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 95px;
+    animation-name: animateleft;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@keyframes animateleft {
+  from {left: -375px; opacity: 0}
+  to {left: 0; opacity: 1}
+}
+
+#rules-title {
+    width: 85px;
+    height: 32px;
+    margin: auto;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    color: hsl(229, 24.8%, 30.8%);
+}
+
+#rules-image {
+    width: 305px;
+    height: 271px;
+    margin: auto;
+    margin-top: 113px;
+    display: block;
+}
+
+#close-icon {
+    width: 19px;
+    height: 19px;
+    margin: auto;
+    margin-top: 154px;
+    display: block;
+}
+
+#close-icon:hover {
+    cursor: pointer;
+}
+
+#reset-button {
+    display: none;
+    margin-top: 20px;
+}
+
+
+
+/************** DESKTOP/LARGE SCREEN STYLES *********************/
+@media only screen and (min-width: 940px) {
+    body {
+        height: 100%;
+    }
+
+    /***** holds everything except buttons *****/
+    .game-container {
+        width: 940px;
+        height: 740px;
+    }
+    
+    /***** header with score *****/
+    .header {
+        width: 700px;
+        height: 150px;
+        border-radius: 15px;
+        position: absolute;
+        top: 35px;
+        left: 120px;
+    }
+
+    .logo {
+       width: 170px;
+       height: 108px; 
+    }
+
+    #score-box {
+        width: 140px;
+        height: 110px; 
+        border-radius: 10px;
+        top: 17px;
+        right: 17px;
+    }
+
+    #score-label {
+        width: auto; 
+        height: auto;
+        font-size: 15px;
+        letter-spacing: 2px;
+        top: 17px;
+        left: 47px;
+    }
+
+    #score-value {
+        width: 80px;
+        height: auto;
+        font-size: 62px;
+        line-height: 62px;
+        text-align: center;
+        top: 35px;
+        left: 30px;
+    }
+
+    /***** holds rock paper scissors circles *****/
+    #triangle {
+        width: 476px;
+        height: 430px;
+        background-size: auto;
+        top: 240px;
+        left: 232px;
+    }
+
+    /***** small cricles for screens over 940px *****/
+    .small {
+        width: 198px;
+        height: 194px;
+        border: 23px solid;
+        transition: box-shadow 0.1s ease-in-out;
+    }
+
+    .small.rock {
+        box-shadow: 0 9px 0 0 hsl(229, 67%, 46%),
+            0 8px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 12px 3px 0 hsla(0, 0%, 0%, 0.2);
+    }
+
+    .small.paper {
+        box-shadow: 0 9px 0 0 hsl(346, 83%, 34%),
+            0 8px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 12px 3px 0 hsla(0, 0%, 0%, 0.2);
+    }
+
+    .small.scissors {
+        box-shadow: 0 9px 0 0 hsl(28, 76.1%, 44.3%),
+            0 8px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 12px 3px 0 hsla(0, 0%, 0%, 0.2);
+    }
+    
+    /***** hover over small circles for screens over 940px *****/
+    .small.rock:hover {
+        box-shadow: 0 9px 0 0 hsl(229, 67%, 46%),
+            0 8px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 12px 3px 0 hsla(0, 0%, 0%, 0.2),
+            0 4px 0 30px hsla(0, 0%, 100%, 0.05);
+    }
+
+    .small.paper:hover {
+        box-shadow: 0 9px 0 0 hsl(346, 83%, 34%),
+            0 8px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 12px 3px 0 hsla(0, 0%, 0%, 0.2),
+            0 4px 0 30px hsla(0, 0%, 100%, 0.05);
+    }
+
+    .small.scissors:hover {
+        box-shadow: 0 9px 0 0 hsl(28, 76.1%, 44.3%),
+            0 8px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 12px 3px 0 hsla(0, 0%, 0%, 0.2),
+            0 4px 0 30px hsla(0, 0%, 100%, 0.05);
+    }
+
+    /***** position of rock button within triangle div *****/
+    #rock {
+        top: 227px;
+        left: 139px;
+    }
+
+    /***** rock paper scissors button animations *****/
+    @keyframes sliderock {
+        from { top: 193px; left: 109px; opacity: 0% }
+        to { top: 227px; left: 139px; opacity: 100% }
+    }
+
+    /***** large cricles for screens over 940px *****/
+    .large {
+        width: 292px;
+        height: 286px;
+        border: 34px solid;
+        transition: box-shadow 0.1s ease-in-out;
+    }
+    
+    .large.rock {
+        box-shadow: 0 13px 0 0 hsl(229, 67%, 46%),
+            0 12px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 15px 3px 0 hsla(0, 0%, 0%, 0.2);
+    }
+    
+    .large.paper {
+        box-shadow: 0 13px 0 0 hsl(346, 83%, 34%),
+            0 12px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 15px 3px 0 hsla(0, 0%, 0%, 0.2);
+    }
+    
+    .large.scissors {
+        box-shadow: 0 13px 0 0 hsl(28, 76.1%, 44.3%),
+            0 12px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 15px 3px 0 hsla(0, 0%, 0%, 0.2);
+    }
+
+    /***** icon sizing and positioning for small circles *****/
+    .small.rock .symbol {
+        width: 64px; 
+        height: 64px;
+        top: 45px;
+        left: 42px;
+    }
+
+    .small.paper .symbol {
+        width: 67px; 
+        height: 80px;
+        top: 30px;
+        left: 40px;
+    }
+
+    .small.scissors .symbol {
+        width: 70px; 
+        height: 80px;
+        top: 34px;
+        left: 43px;
+    }
+
+    /***** icon sizing for large circles *****/
+    .large.rock .symbol {
+        width: 95px; 
+        height: 95px;
+        top: 55px;
+        left: 61px;
+    }
+
+    .large.paper .symbol {
+        width: 100px; 
+        height: 118px;
+        top: 44px;
+        left: 58px;
+    }
+
+    .large.scissors .symbol {
+        width: 100px; 
+        height: 118px;
+        top: 45px;
+        left: 57px;
+    }
+
+    /***** position divs holding selections *****/
+    #user-pick-container, #house-pick-container {
+        width: 293px;
+        height: 395px;
+        top: 240px;;
+    }
+
+    #user-pick-container {
+        left: 134px;
+    }
+
+    #house-pick-container {
+        left: 499px;
+    }
+
+    #user-pick-container.shift-left {
+        left: 14px;
+        animation: shiftleft 0.5s;
+    }
+
+    #house-pick-container.shift-right {
+        left: 635px;
+        animation: shiftright 0.5s;
+    }
+
+    @keyframes shiftleft {
+        from {left: 134px}
+        to {left: 14px}
+    }
+
+    @keyframes shiftright {
+        from {left: 499px}
+        to {left: 635px}
+    }
+
+    /***** position of "picked text within container *****/
+    .you-picked-text, .house-picked-text {
+        font-size: 24px;
+        letter-spacing: 3px;
+        top: 0;
+    }
+    
+    .you-picked-text {
+        width: 144px;
+        left: 74px;
+    }
+    
+    .house-picked-text {
+        width: 231px;
+        left: 31px;
+    }
+    
+    /* positions within #house-pick-container and #user-pick-container*/
+    #house-selection, #user-selection {
+        top: 95px;
+        left: 0;
+    }
+
+    #placeholder {
+        width: 225px;
+        height: 225px;
+        top: 129px;
+        left: 31px;
+        /* animation-name: pulse;
+        animation-duration: 0.2s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; */
+    }
+
+    @keyframes pulse {
+        from { top: 129px; left: 31px; width: 225px; height: 225px }
+        to { top: 154px; left: 56px; width: 175px; height: 175px }
+    }
+
+    #win-text, #lose-text, #draw-text {
+        top: 410px
+    }
+
+    #win-text {
+        left: 373px;
+    }
+
+    #lose-text {
+        left: 360px;
+    }
+
+    #draw-text {
+        left: 405px;
+    }
+
+    #play-again-button {
+        top: 493px;
+        left: 360px;
+    }
+
+    #win-text, #lose-text, #draw-text, #play-again-button {
+        animation: appear 0.3s ease-in-out 0.2s both;
+    }
+    
+    .winner.rock {
+        box-shadow: 0 13px 0 0 hsl(229, 67%, 46%),
+            0 12px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 15px 3px 0 hsla(0, 0%, 0%, 0.2),
+            0 0 0 200px hsla(100, 100%, 100%, 0.01), 
+            0 0 0 130px hsla(100, 100%, 100%, 0.02), 
+            0 0 0 60px hsla(100, 100%, 100%, 0.03);
+    }
+    
+    .winner.paper {
+        box-shadow: 0 13px 0 0 hsl(346, 83%, 34%),
+            0 12px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 15px 3px 0 hsla(0, 0%, 0%, 0.2),
+            0 0 0 200px hsla(100, 100%, 100%, 0.01), 
+            0 0 0 130px hsla(100, 100%, 100%, 0.02), 
+            0 0 0 60px hsla(100, 100%, 100%, 0.03);
+    }
+    
+    .winner.scissors {
+        box-shadow: 0 13px 0 0 hsl(28, 76.1%, 44.3%),
+            0 12px 0 0 hsl(228, 23.2%, 78%) inset, 
+            0 15px 3px 0 hsla(0, 0%, 0%, 0.2),
+            0 0 0 200px hsla(100, 100%, 100%, 0.01), 
+            0 0 0 130px hsla(100, 100%, 100%, 0.02), 
+            0 0 0 60px hsla(100, 100%, 100%, 0.03);
+    }
+
+    .button {
+        position: absolute;
+        bottom: 32px;
+    }
+
+    #rules-button {
+        right: 32px;
+    }
+
+    #reset-button {
+        right: 170px;
+        margin: 0;
+    }
+
+    .modal-content {
+        width: 400px;
+        height: 415px;
+        margin: auto;
+        margin-top: 177px;
+        border-radius: 8px;
+        padding: 32px;
+        box-shadow: 0 3px 3px 0 hsla(0, 0%, 0%, 0.2);
+        position: relative;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+    }
+    
+    /* Add Animation */
+    @keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+
+    #rules-title {
+        margin: 0;
+    }
+
+    #rules-image {
+        margin-top: 48px;
+    }
+
+    #close-icon {
+        margin: 0;
+        position: absolute;
+        top: 38px;
+        left: 349px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER - attribution */
+.attribution {
+    width: 100%;
+    height: 32px;
+    margin: auto;
+    font-size: 0.7em;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+.attribution a {
+    color: white;
+}

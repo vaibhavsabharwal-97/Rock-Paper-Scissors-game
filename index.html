@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  
+</head>
+<body>
+  <div class="game-container">
+    
+    <!--------------- HEADER --------------->
+    <div class="header">
+
+      <img class="logo" src="./images/logo.svg" atl="logo">
+
+      <div id="score-box">
+        <p id="score-label">score</p>
+        <p id="score-value"></p>
+      </div>
+    <!-- closing header div -->
+    </div>
+
+    <!-------------- STEP 1 - START PAGE --------------->
+    <div id="triangle">
+      <div id="paper" class="circle small paper">
+        <div class="symbol"></div>
+      </div>
+      <div id="scissors" class="circle small scissors">
+        <div class="symbol"></div>
+      </div>
+      <div id="rock" class="circle small rock">
+        <div class="symbol"></div>
+      </div>
+    </div>
+    <!-- end of start-page -->
+
+
+    <!--------------- STEP 2 - USER AND HOUSE PICKS --------------->
+    <div id="user-pick-container">
+      <p class="you-picked-text">you picked</p>
+      <div id="user-selection" class="circle large">
+        <div class="symbol"></div>
+      </div>
+    </div>
+
+    <div id="house-pick-container">
+      <p class="house-picked-text">the house picked</p>
+        <div id="placeholder"></div>
+        <div id="house-selection" class="circle large">
+          <div class="symbol"></div>
+        </div>
+    </div>
+  <!-- end of selection -->
+
+  <!--------------- STEP 3 - RESULTS --------------->
+  <p id="win-text">you win</p>
+  <p id="lose-text">you lose</p>
+  <p id="draw-text">draw</p>
+
+  <div id="play-again-button"><p class="play-again-text">play again</p></div>
+  <!-- end of results -->
+
+</div>
+<!-- end of game-container -->
+
+<!--------------- RULES BUTTON --------------->
+<div id="rules-button" class="button"><p class="button-text">rules</p></div>
+
+<div id="rules-modal" class="modal">
+  <div class="modal-content">
+    <p id="rules-title">rules</p>
+    <img id="rules-image" src="./images/image-rules.svg" alt="rules">
+    <img id="close-icon" src="./images/icon-close.svg" alt="close">
+  </div>
+</div>
+
+<!-- end of rules button -->
+
+<!--------------- RESET SCORE BUTTON ------------->
+<div id="reset-button" class="button"><p class="button-text">reset</p></div>
+<!-- end of rules button -->
+
+
+<!--------------- ATTRIBUTION --------------->
+<!-- <div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by Margarida Rodrigues.
+</div> -->
+<!-- end of attribution -->
+<script src="javascript.js"></script>
+</body>
+</html>
